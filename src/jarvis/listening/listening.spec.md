@@ -68,7 +68,7 @@ Instead of extracting post-wake-word audio, we:
 - Let the intent judge extract the relevant query
 
 **Benefits:**
-- Pre-wake-word chatter naturally filtered: "blah blah Jarvis what time is it" → "what time is it"
+- Pre-wake-word chatter naturally filtered: "blah blah Luffy what time is it" → "what time is it"
 - Full context available for intent understanding
 - Echo detection via multi-layer approach (fuzzy text matching + LLM intent judge)
 
@@ -80,7 +80,7 @@ Wake word detection operates on the rolling transcript buffer. When Whisper prod
 
 The intent judge receives full context and makes intelligent decisions:
 - Knows what TTS said → can identify echo vs real speech
-- Sees pre-wake-word context → can understand "...what do YOU think, Jarvis?"
+- Sees pre-wake-word context → can understand "...what do YOU think, Luffy?"
 - Extracts clean query → removes filler words, false starts
 
 ## The Three Listening Modes
@@ -148,8 +148,8 @@ class TranscriptBuffer:
 
 ### Memory Alignment
 
-- **Transcript buffer** (`transcript_buffer_duration_sec`): Rolling raw ambient speech. Separate and potentially longer — in group conversations, 2+ minutes of context lets the intent judge synthesise a complete query with relevant information when someone decides to involve Jarvis later in the conversation.
-- **Short-term memory** (`dialogue_memory_timeout`): Processed Jarvis interactions (user queries + assistant responses). This window also drives the forced diary update interval.
+- **Transcript buffer** (`transcript_buffer_duration_sec`): Rolling raw ambient speech. Separate and potentially longer — in group conversations, 2+ minutes of context lets the intent judge synthesise a complete query with relevant information when someone decides to involve Luffy later in the conversation.
+- **Short-term memory** (`dialogue_memory_timeout`): Processed Luffy interactions (user queries + assistant responses). This window also drives the forced diary update interval.
 - **Long-term memory (diary):** Forced update when unsaved messages reach `dialogue_memory_timeout` age. Enrichment retrieves any relevant earlier context from the diary.
 
 ### Methods
@@ -166,13 +166,13 @@ class TranscriptBuffer:
 
 The intent judge receives the full transcript buffer (default: 120 seconds / 2 minutes) and **synthesizes a complete query** using conversation context.
 
-This enables Jarvis to **chime into ongoing conversations** between people. When someone asks "Jarvis, what do you think?", the judge uses context to understand what they were discussing and creates a complete, actionable query. Vague references like "that", "it", "this" in the current segment are resolved using previous segments in the buffer (e.g. "I think dinosaurs are cool" + "What do you think about that Jarvis?" → "what do you think about dinosaurs being cool").
+This enables Luffy to **chime into ongoing conversations** between people. When someone asks "Luffy, what do you think?", the judge uses context to understand what they were discussing and creates a complete, actionable query. Vague references like "that", "it", "this" in the current segment are resolved using previous segments in the buffer (e.g. "I think dinosaurs are cool" + "What do you think about that Luffy?" → "what do you think about dinosaurs being cool").
 
 **Multi-person conversation example:**
 ```
 [12:28:30] Person A: "I wonder what the weather will be like tomorrow"
 [12:28:45] Person B: "Yeah, we should check before planning the picnic"
-[12:29:00] Person A: "Jarvis, what do you think?"
+[12:29:00] Person A: "Luffy, what do you think?"
 ```
 
 The intent judge synthesizes: `"what do you think about the weather tomorrow for the picnic"`
@@ -183,7 +183,7 @@ The intent judge synthesizes: `"what do you think about the weather tomorrow for
 Transcript (last 120 seconds):
 [12:28:30] "I wonder what the weather will be like tomorrow"
 [12:28:45] "Yeah, we should check before planning the picnic"
-[12:29:00] "Jarvis what do you think"
+[12:29:00] "Luffy what do you think"
 
 Wake word detected at: 12:29:00.8 (text-based)
 Last TTS: "The weather is sunny and 72 degrees"
@@ -252,7 +252,7 @@ If the intent judge later rejects the query (and no hot window override applies)
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `transcript_buffer_duration_sec` | 120 | Duration (seconds) for rolling ambient speech transcript. Provides conversation context so the intent judge can synthesise a complete query when someone involves Jarvis. Separate from dialogue memory. |
+| `transcript_buffer_duration_sec` | 120 | Duration (seconds) for rolling ambient speech transcript. Provides conversation context so the intent judge can synthesise a complete query when someone involves Luffy. Separate from dialogue memory. |
 
 Note: Intent judge is always used when available (no enable flag). Falls back to simple wake word detection when Ollama is unavailable.
 

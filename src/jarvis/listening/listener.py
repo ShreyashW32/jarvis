@@ -455,7 +455,7 @@ class VoiceListener(threading.Thread):
                 debug_log("early beep: hot window active", "voice")
             else:
                 # Not in hot window — check for wake word
-                wake_word = getattr(self.cfg, "wake_word", "jarvis")
+                wake_word = getattr(self.cfg, "wake_word", "luffy")
                 aliases = list(set(getattr(self.cfg, "wake_aliases", [])) | {wake_word})
                 fuzzy_ratio = float(getattr(self.cfg, "wake_fuzzy_ratio", 0.78))
                 if is_wake_word_detected(text_lower, wake_word, aliases, fuzzy_ratio):
@@ -617,7 +617,7 @@ class VoiceListener(threading.Thread):
                     # In wake word mode, verify the wake word is actually present
                     # The LLM sometimes hallucinates wake words that don't exist
                     if not could_be_hot_window:
-                        wake_word = getattr(self.cfg, "wake_word", "jarvis")
+                        wake_word = getattr(self.cfg, "wake_word", "luffy")
                         aliases = list(set(getattr(self.cfg, "wake_aliases", [])) | {wake_word})
                         has_wake_word = self._wake_timestamp is not None or is_wake_word_detected(
                             text_lower, wake_word, aliases
@@ -644,7 +644,7 @@ class VoiceListener(threading.Thread):
                             return
                     else:
                         # Hot window mode - no wake word needed, but check for echo.
-                        # The mic can pick up Jarvis's own TTS output and Whisper
+                        # The mic can pick up Luffy's own TTS output and Whisper
                         # transcribes it as user speech. Check fuzzy similarity.
                         # Only reject PURE echo — if the heard text is significantly
                         # longer than TTS, it contains user speech mixed with echo
@@ -714,7 +714,7 @@ class VoiceListener(threading.Thread):
                 if intent_judgment.directed and intent_judgment.confidence == "high":
                     # In wake word mode, verify the wake word is actually present
                     if not could_be_hot_window:
-                        wake_word = getattr(self.cfg, "wake_word", "jarvis")
+                        wake_word = getattr(self.cfg, "wake_word", "luffy")
                         aliases = list(set(getattr(self.cfg, "wake_aliases", [])) | {wake_word})
                         has_wake_word = self._wake_timestamp is not None or is_wake_word_detected(
                             text_lower, wake_word, aliases
@@ -909,7 +909,7 @@ class VoiceListener(threading.Thread):
                     debug_log(f"⏭️ Intent judge inconclusive ({intent_judgment.confidence}), checking wake word", "voice")
 
         # Priority 4: Wake word detection (fallback when intent judge unavailable/inconclusive)
-        wake_word = getattr(self.cfg, "wake_word", "jarvis")
+        wake_word = getattr(self.cfg, "wake_word", "luffy")
         aliases = set(getattr(self.cfg, "wake_aliases", [])) | {wake_word}
         fuzzy_ratio = float(getattr(self.cfg, "wake_fuzzy_ratio", 0.78))
 
@@ -1320,7 +1320,7 @@ class VoiceListener(threading.Thread):
                     print("  │  4. Turn ON 'Let apps access your microphone'          │", flush=True)
                     print("  │  5. Turn ON 'Let desktop apps access your microphone'  │", flush=True)
                     print("  │                                                         │", flush=True)
-                    print("  │  Then restart Jarvis.                                  │", flush=True)
+                    print("  │  Then restart Luffy.                                   │", flush=True)
                     print("  └─────────────────────────────────────────────────────────┘", flush=True)
                     print("", flush=True)
                 return
@@ -1732,7 +1732,7 @@ class VoiceListener(threading.Thread):
                     return
 
             # Show ready message only after stream is confirmed active
-            wake_word = getattr(self.cfg, "wake_word", "jarvis").lower()
+            wake_word = getattr(self.cfg, "wake_word", "luffy").lower()
             print(f"🎙️  Listening! Try: \"How's the weather, {wake_word.title()}?\"", flush=True)
 
             # Set face state to IDLE (awake and ready, waiting for wake word)

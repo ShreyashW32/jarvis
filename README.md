@@ -1,17 +1,17 @@
-# Jarvis
+# Luffy
 
-**A 100% private AI voice assistant that lives on your computer** (works offline). Talk naturally as if Jarvis is a third person in the room — say its name anywhere in your sentence and get conversational, context-aware responses. It remembers everything, always knows the current location and time, can search the web, read your screen, control Chrome, track nutrition, and much more with support for unlimited MCPs and tools without context rot. Sensitive info is automatically redacted before anything is saved to disk.
+**A 100% private AI voice assistant that lives on your computer** (works offline). Talk naturally as if Luffy is a third person in the room — say its name anywhere in your sentence and get conversational, context-aware responses. It remembers everything, always knows the current location and time, can search the web, read your screen, control Chrome, track nutrition, and much more with support for unlimited MCPs and tools without context rot. Sensitive info is automatically redacted before anything is saved to disk.
 
 🔒 100% local processing. No subscriptions. No data harvesting. Automatic redaction of sensitive info. Free offline dictation included.
 
 ---
 
-**Support Jarvis** [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ff69b4?logo=github)](https://github.com/sponsors/isair) [![Ko-fi](https://img.shields.io/badge/Support-Ko--fi-ff5722?logo=kofi&logoColor=white)](https://ko-fi.com/isair)
+**Support Luffy** [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ff69b4?logo=github)](https://github.com/sponsors/isair) [![Ko-fi](https://img.shields.io/badge/Support-Ko--fi-ff5722?logo=kofi&logoColor=white)](https://ko-fi.com/isair)
 
 ---
 
 <p align="center">
-  <img src="docs/img/face.png" alt="Jarvis Face" width="400">
+  <img src="docs/img/face.png" alt="Luffy Face" width="400">
 </p>
 
 <p align="center">
@@ -19,21 +19,21 @@
   <img src="docs/img/memory-viewer-meals.png" alt="Memory Viewer - Nutrition" width="400">
 </p>
 
-## Why Jarvis?
+## Why Luffy?
 
 **🔒 Your data stays yours** - 100% local AI processing. No cloud, no subscriptions, no data harvesting. Automatic redaction of sensitive info. This is non-negotiable.
 
-**🗣️ A third person in the room** - Unlike voice assistants that only respond to rigid commands, Jarvis understands conversations. It maintains a short temporary rolling context of what's being discussed, so when you ask "Jarvis, what do you think?" it knows exactly what you're talking about. Have it chime into discussions with friends, help debug code while you talk through problems, or weigh in on decisions.
+**🗣️ A third person in the room** - Unlike voice assistants that only respond to rigid commands, Luffy understands conversations. It maintains a short temporary rolling context of what's being discussed, so when you ask "Luffy, what do you think?" it knows exactly what you're talking about. Have it chime into discussions with friends, help debug code while you talk through problems, or weigh in on decisions.
 
 **🧠 Never forgets** - Unlimited memory across conversations. Adapts tone naturally to the topic. Learns your preferences over time.
 
 **🎙️ Free dictation** - Hold a hotkey, speak, release — your words appear in any app as text. Like WisprFlow, but free, offline, and private. No subscription, no cloud transcription.
 
-**🔌 Extensible** - MCP integration connects Jarvis to thousands of tools: smart home, GitHub, Slack, databases, and more. Smart tool selection means adding more tools won't slow things down.
+**🔌 Extensible** - MCP integration connects Luffy to thousands of tools: smart home, GitHub, Slack, databases, and more. Smart tool selection means adding more tools won't slow things down.
 
 **📊 Transparent progress** - We track what works (and what doesn't) with automated evals. [See current accuracy →](EVALS.md)
 
-**🚧 Known limitations:** Jarvis is under active development. Primary development happens on macOS. Windows/Linux support may lag behind. We're building in the open, [issues](https://github.com/isair/jarvis/issues) and [contributions](https://github.com/isair/jarvis/pulls) welcome!
+**🚧 Known limitations:** Luffy is under active development. Primary development happens on macOS. Windows/Linux support may lag behind. We're building in the open, [issues](https://github.com/isair/jarvis/issues) and [contributions](https://github.com/isair/jarvis/pulls) welcome!
 - Voice-only for now—no text chat interface yet ([#35](https://github.com/isair/jarvis/issues/35))
 - No mobile apps ([#17](https://github.com/isair/jarvis/issues/17))
 - "Stop" commands during speech sometimes get filtered as echo ([#24](https://github.com/isair/jarvis/issues/24))
@@ -46,41 +46,41 @@
 ```
 👤 Alice: I wonder what the weather will be like tomorrow
 👤 Bob: Yeah, we should check before planning the picnic
-👤 Alice: Jarvis, what do you think?
-  📝 Heard: "What do you think Jarvis?"
+👤 Alice: Luffy, what do you think?
+  📝 Heard: "What do you think Luffy?"
   🧠 Intent (wake word): directed → "what do you think about the weather for the picnic"
 
 ✨ Working on it: what do you think about the weather for the picnic
   🧰 Tool: getWeather…
   💬 Generating response...
 
-🤖 Jarvis
+🤖 Luffy
 Tomorrow looks great for a picnic! Sunny with highs around 22°C...
 ```
-Jarvis understood the entire conversation and gave a contextual answer — no need to repeat the question.
+Luffy understood the entire conversation and gave a contextual answer — no need to repeat the question.
 
 **Browser automation via MCP:**
 ```
-  📝 Heard: "Open YouTube Jarvis."
+  📝 Heard: "Open YouTube Luffy."
   🧠 Intent (wake word): directed → "open YouTube"
 
 ✨ Working on it: open YouTube
   💬 Generating response...
 
-🤖 Jarvis
+🤖 Luffy
 I have opened YouTube for you.
 ```
 
 **Health-aware advice:**
 ```
-  📝 Heard: "Should I order pizza tonight considering my health goals Jarvis?"
+  📝 Heard: "Should I order pizza tonight considering my health goals Luffy?"
   🧠 Intent (wake word): directed → "should I order pizza tonight considering my health goals"
 
 ✨ Working on it: should I order pizza tonight considering my health goals
   🧰 Tool: fetchMeals…
   💬 Generating response...
 
-🤖 Jarvis
+🤖 Luffy
 Looking at your week — you mentioned wanting to lose 5kg by June...
 Today you've had about 860 calories so far. Given your 1,800 calorie target,
 you've got room for pizza! But maybe consider thin crust to save calories.
@@ -88,7 +88,7 @@ you've got room for pizza! But maybe consider thin crust to save calories.
 
 **Personalised news search:**
 ```
-  📝 Heard: "What are some news from today that might interest me Jarvis?"
+  📝 Heard: "What are some news from today that might interest me Luffy?"
   🧠 Intent (wake word): directed → "what are some news from today that might interest me"
 
 ✨ Working on it: what are some news from today that might interest me
@@ -96,25 +96,25 @@ you've got room for pizza! But maybe consider thin crust to save calories.
   🧰 Tool: webSearch…
   💬 Generating response...
 
-🤖 Jarvis
+🤖 Luffy
 Here's a quick snapshot of today's headlines...
 ```
 
-**Natural wake word placement** (say "Jarvis" anywhere):
+**Natural wake word placement** (say "Luffy" anywhere):
 ```
-  📝 Heard: "Give me a random topic to discuss Jarvis."
+  📝 Heard: "Give me a random topic to discuss Luffy."
   🧠 Intent (wake word): directed → "give me a random topic to discuss"
 
 ✨ Working on it: give me a random topic to discuss
   💬 Generating response...
 
-🤖 Jarvis
+🤖 Luffy
 How about the Fermi Paradox? Given the vast number of stars...
 ```
 
-**Echo detection** (Jarvis ignores its own speech):
+**Echo detection** (Luffy ignores its own speech):
 ```
-🤖 Jarvis
+🤖 Luffy
 I have opened YouTube for you.
 
 👂 Listening for follow-up (3s)...
@@ -134,17 +134,17 @@ I have opened YouTube for you.
 | **All** | [Ollama](https://ollama.com/download) |
 | **Windows** | [Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) (most PCs already have this) |
 
-### 2. Download Jarvis
+### 2. Download Luffy
 
 Get the latest from [GitHub Releases](https://github.com/isair/jarvis/releases):
 
 | Platform | Download | Run |
 |----------|----------|-----|
-| **Windows** | `Jarvis-Windows-x64.zip` | Extract → Run `Jarvis.exe` |
-| **macOS** | `Jarvis-macOS-arm64.zip` | Extract → Move to Applications → Right-click → Open |
-| **Linux** | `Jarvis-Linux-x64.tar.gz` | `tar -xzf` → Run `./Jarvis/Jarvis` |
+| **Windows** | `Luffy-Windows-x64.zip` | Extract → Run `Luffy.exe` |
+| **macOS** | `Luffy-macOS-arm64.zip` | Extract → Move to Applications → Right-click → Open |
+| **Linux** | `Luffy-Linux-x64.tar.gz` | `tar -xzf` → Run `./Luffy/Luffy` |
 
-Jarvis starts listening automatically — just say "Jarvis" and talk!
+Luffy starts listening automatically — just say "Luffy" and talk!
 
 <p align="center">
   <img src="docs/img/setup-wizard-initial-check.png" alt="Setup - Initial Check" width="200">
@@ -161,12 +161,12 @@ Jarvis starts listening automatically — just say "Jarvis" and talk!
 
 ## Features
 
-- **Conversational Awareness** - Understands ongoing discussions. Ask "Jarvis, what do you think?" and it knows what you're talking about. Works naturally in multi-person conversations.
+- **Conversational Awareness** - Understands ongoing discussions. Ask "Luffy, what do you think?" and it knows what you're talking about. Works naturally in multi-person conversations.
 - **Unlimited Memory** - Never forgets. Searches across all your conversation history. Memory Viewer GUI included.
 - **Adaptive Tone** - Automatically surgical for code, pragmatic for business, encouraging for wellbeing — no manual mode switching
 - **Smart Tool Selection** - Embedding-based relevance filtering picks only the tools needed per query — add unlimited MCP tools without performance degradation
 - **Built-in Tools** - Screenshot OCR, web search (with auto-fetch), weather, file access, nutrition tracking, location awareness
-- **Natural Voice** - Say "Jarvis" anywhere in your sentence, interrupt with "stop", follow up without repeating the wake word
+- **Natural Voice** - Say "Luffy" anywhere in your sentence, interrupt with "stop", follow up without repeating the wake word
 - **Dictation Mode** - Free, offline alternative to WisprFlow — hold a hotkey, speak, release to paste text into any app
 - **MCP Integration** - Connect to thousands of external tools (Home Assistant, GitHub, Slack, etc.)
 
@@ -184,7 +184,7 @@ The setup wizard will guide you through model selection and installation on firs
 
 ## Configuration
 
-Most users won't need to change anything. Open **⚙️ Settings** from the tray menu to configure Jarvis through a graphical interface — no JSON editing required. Settings are saved to `~/.config/jarvis/config.json`.
+Most users won't need to change anything. Open **⚙️ Settings** from the tray menu to configure Luffy through a graphical interface — no JSON editing required. Settings are saved to `~/.config/jarvis/config.json`.
 
 <p align="center">
   <img src="docs/img/settings-window.png" alt="Settings Window" width="500">
@@ -210,7 +210,7 @@ Most users won't need to change anything. Open **⚙️ Settings** from the tray
 Speed is relative to the original large model. [Source](https://github.com/openai/whisper)
 
 #### GPU Acceleration (Windows)
-If you have an NVIDIA GPU, Jarvis can use CUDA for much faster speech recognition. The Windows installer offers an optional CUDA download during setup. For development:
+If you have an NVIDIA GPU, Luffy can use CUDA for much faster speech recognition. The Windows installer offers an optional CUDA download during setup. For development:
 ```bash
 pip install nvidia-cublas-cu12 nvidia-cudnn-cu12
 ```
@@ -221,7 +221,7 @@ CUDA is detected automatically — no configuration needed.
 <details>
 <summary><strong>Voice Interface (Advanced)</strong></summary>
 
-**LLM Intent Judge** - Jarvis uses `gemma4:e2b` for intelligent voice intent classification (echo detection, query extraction, stop commands). This model is automatically installed alongside your chosen chat model during setup. The intent judge cannot be disabled but gracefully falls back to simpler text matching if Ollama is unavailable.
+**LLM Intent Judge** - Luffy uses `gemma4:e2b` for intelligent voice intent classification (echo detection, query extraction, stop commands). This model is automatically installed alongside your chosen chat model during setup. The intent judge cannot be disabled but gracefully falls back to simpler text matching if Ollama is unavailable.
 
 </details>
 
@@ -257,7 +257,7 @@ Customise the hotkey in Settings or `config.json`:
   "dictation_hotkey": "ctrl+alt",
   "dictation_filler_removal": true,
   "dictation_custom_dictionary": [
-    "jarvis -> Jarvis",
+    "luffy -> Luffy",
     "pytorch -> PyTorch"
   ]
 }
@@ -298,7 +298,7 @@ Voice cloning with Chatterbox - add a 3-10 second .wav sample:
 <details>
 <summary><strong>Location Detection</strong></summary>
 
-Jarvis can provide location-aware responses (weather, local time, etc.) using a local GeoLite2 database — no cloud geolocation services are used.
+Luffy can provide location-aware responses (weather, local time, etc.) using a local GeoLite2 database — no cloud geolocation services are used.
 
 **IP detection chain** (in order of preference):
 1. **Manual IP** — configure `location_ip_address` in settings
@@ -306,7 +306,7 @@ Jarvis can provide location-aware responses (weather, local time, etc.) using a 
 3. **Socket heuristic** — determines which interface routes externally (no data sent)
 4. **OpenDNS DNS query** — single `myip.opendns.com` lookup to `208.67.222.222` (only external query)
 
-If your ISP uses carrier-grade NAT (CGNAT), Jarvis automatically resolves your true public IP via the same OpenDNS DNS query. This can be disabled:
+If your ISP uses carrier-grade NAT (CGNAT), Luffy automatically resolves your true public IP via the same OpenDNS DNS query. This can be disabled:
 
 ```json
 {
@@ -321,7 +321,7 @@ If your ISP uses carrier-grade NAT (CGNAT), Jarvis automatically resolves your t
 <details>
 <summary><strong>MCP Tool Integration</strong></summary>
 
-Connect Jarvis to external tools via [MCP servers](https://github.com/topics/mcp-server):
+Connect Luffy to external tools via [MCP servers](https://github.com/topics/mcp-server):
 
 ```json
 {
@@ -370,7 +370,7 @@ See [full MCP setup guide](#mcp-integrations) below.
 }
 ```
 
-"Jarvis, turn on the living room lights" / "set bedroom to 72°" / "run good night scene"
+"Luffy, turn on the living room lights" / "set bedroom to 72°" / "run good night scene"
 
 </details>
 
@@ -457,7 +457,7 @@ Get API key at [composio.dev](https://composio.dev)
 <details>
 <summary><strong>Common issues</strong></summary>
 
-**Jarvis doesn't hear me** - Check microphone permissions, speak clearly after "Jarvis"
+**Luffy doesn't hear me** - Check microphone permissions, speak clearly after "Luffy"
 
 **Responses are slow** - Ensure you have enough VRAM (8GB+ for default model; see System Requirements for other models)
 

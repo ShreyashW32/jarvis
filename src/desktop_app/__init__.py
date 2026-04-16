@@ -1,7 +1,7 @@
 """
-Jarvis Desktop App - System Tray Application
+Luffy Desktop App - System Tray Application
 
-A cross-platform system tray app for controlling the Jarvis voice assistant.
+A cross-platform system tray app for controlling the Luffy voice assistant.
 Supports Windows, Ubuntu (Linux), and macOS.
 """
 

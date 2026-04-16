@@ -660,7 +660,7 @@ def run_reply_engine(db: "Database", cfg, tts: Optional[Any],
 
         # Print error message
         try:
-            print(f"\n⚠️ Jarvis\n{reply}\n", flush=True)
+            print(f"\n⚠️ Luffy\n{reply}\n", flush=True)
         except Exception:
             pass
 
@@ -681,11 +681,11 @@ def run_reply_engine(db: "Database", cfg, tts: Optional[Any],
         # Print reply with appropriate header
         try:
             if not getattr(cfg, "voice_debug", False):
-                print(f"\n🤖 Jarvis\n" + safe_reply + "\n", flush=True)
+                print(f"\n🤖 Luffy\n" + safe_reply + "\n", flush=True)
             else:
-                print(f"\n[jarvis]\n" + safe_reply + "\n", flush=True)
+                print(f"\n[luffy]\n" + safe_reply + "\n", flush=True)
         except Exception:
-            print(f"\n[jarvis]\n" + safe_reply + "\n", flush=True)
+            print(f"\n[luffy]\n" + safe_reply + "\n", flush=True)
 
         # TTS output - callbacks handled by calling code
         if tts is not None and tts.enabled:

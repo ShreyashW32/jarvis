@@ -1,4 +1,4 @@
-"""Debug logging utilities for Jarvis."""
+"""Debug logging utilities for Luffy."""
 import sys
 import time
 from typing import Optional
@@ -23,7 +23,7 @@ def _is_debug_enabled() -> bool:
 
 
 def debug_log(message: str, category: str = "debug") -> None:
-    """Unified debug logging function for Jarvis.
+    """Unified debug logging function for Luffy.
 
     Args:
         message: The debug message to log

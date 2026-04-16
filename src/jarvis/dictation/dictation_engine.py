@@ -162,7 +162,7 @@ def _clipboard_paste(text: str) -> None:
             _accessibility_warned = True
             debug_log(
                 "Accessibility permission required for paste — "
-                "opened System Settings. Grant permission and restart Jarvis.",
+                "opened System Settings. Grant permission and restart Luffy.",
                 "dictation",
             )
             return
@@ -394,7 +394,7 @@ def _apply_custom_dictionary(text: str, dictionary: list) -> str:
     """Apply custom dictionary corrections to transcribed text.
 
     Each entry in *dictionary* is a string. The dictionary is used to fix
-    common mis-transcriptions (e.g. "Jarvice" → "Jarvis") by doing
+    common mis-transcriptions (e.g. "Luffice" → "Luffy") by doing
     case-insensitive replacement.  Entries can be ``"wrong -> right"`` pairs
     or single terms that Whisper should have produced verbatim.
     """

@@ -1,5 +1,5 @@
 """
-Jarvis Voice Assistant
+Luffy Voice Assistant
 
 A modular voice assistant with conversation memory, tool integration,
 and natural language processing capabilities.

@@ -1,5 +1,5 @@
 """
-⚙️ Jarvis Settings Window
+⚙️ Luffy Settings Window
 
 Auto-generated settings UI driven by config metadata.
 Reads/writes config.json directly and groups settings by category.
@@ -166,7 +166,7 @@ def _build_field_metadata() -> List[FieldMeta]:
 
     # --- Wake Word ---
     f("wake_word", "Wake Word",
-      "Primary wake word to activate Jarvis",
+      "Primary wake word to activate Luffy",
       "wake", "str")
     f("wake_fuzzy_ratio", "Fuzzy Match Ratio",
       "How loosely to match the wake word (0.0–1.0)",
@@ -290,7 +290,7 @@ def _build_field_metadata() -> List[FieldMeta]:
       "Let the LLM think when cleaning dictation (adds latency after each dictation)",
       "features", "bool")
     f("dictation_custom_dictionary", "Custom Dictionary",
-      "Correction rules for dictation. Use 'wrong -> right' format (e.g. 'Jarvice -> Jarvis')",
+      "Correction rules for dictation. Use 'wrong -> right' format (e.g. 'Luffice -> Luffy')",
       "features", "list")
 
     # --- Advanced ---
@@ -341,7 +341,7 @@ class SettingsWindow(QDialog):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("⚙️ Jarvis Settings")
+        self.setWindowTitle("⚙️ Luffy Settings")
         self.setMinimumSize(780, 560)
         self.resize(840, 620)
         self._widgets: Dict[str, Any] = {}  # key -> widget
@@ -365,7 +365,7 @@ class SettingsWindow(QDialog):
         header.setObjectName("title")
         layout.addWidget(header)
 
-        subtitle = QLabel("Changes are saved to config.json. Restart Jarvis to apply.")
+        subtitle = QLabel("Changes are saved to config.json. Restart Luffy to apply.")
         subtitle.setObjectName("subtitle")
         layout.addWidget(subtitle)
 
@@ -650,7 +650,7 @@ class SettingsWindow(QDialog):
 
         # Header
         desc = QLabel(
-            "MCP (Model Context Protocol) servers give Jarvis extra tools — "
+            "MCP (Model Context Protocol) servers give Luffy extra tools — "
             "file access, web search, databases, and more."
         )
         desc.setWordWrap(True)
@@ -720,7 +720,7 @@ class SettingsWindow(QDialog):
                 display = f"🔌 {name}"
             self._mcp_list.addItem(display)
         if self._mcp_list.count() == 0:
-            self._mcp_detail.setText("No MCP servers configured. Add one to extend Jarvis's capabilities.")
+            self._mcp_detail.setText("No MCP servers configured. Add one to extend Luffy's capabilities.")
         else:
             self._mcp_list.setCurrentRow(0)
 
@@ -857,7 +857,7 @@ class SettingsWindow(QDialog):
             debug_log("settings saved to config.json", "settings")
             QMessageBox.information(
                 self, "✅ Saved",
-                "Settings saved. Restart Jarvis for changes to take effect."
+                "Settings saved. Restart Luffy for changes to take effect."
             )
             self.accept()
         else:
@@ -968,7 +968,7 @@ class _MCPCatalogueDialog(QDialog):
         node_warning = QLabel(
             "⚠️  <b>Node.js not found.</b> Most MCP servers require Node.js. "
             "<a href='https://nodejs.org/' style='color: #f59e0b;'>Download Node.js</a> "
-            "and restart Jarvis to use them."
+            "and restart Luffy to use them."
         )
         node_warning.setOpenExternalLinks(True)
         node_warning.setWordWrap(True)
