@@ -1,12 +1,12 @@
 # Desktop App Specification
 
-This document outlines the architecture and behavior of the Jarvis Desktop App - a cross-platform PyQt6 system tray application that provides a graphical interface for the Jarvis voice assistant.
+This document outlines the architecture and behavior of the Luffy Desktop App - a cross-platform PyQt6 system tray application that provides a graphical interface for the Luffy voice assistant.
 
 ## Overview
 
 The desktop app is a **separate package** from the core `jarvis` module. It depends on `jarvis` for assistant functionality but `jarvis` has no knowledge of or dependency on the desktop app. This separation allows:
 
-- Running Jarvis headless (CLI/daemon only)
+- Running Luffy headless (CLI/daemon only)
 - Building alternative UIs (web, mobile) without modifying core logic
 - Keeping PyQt6 dependencies isolated from the core package
 
@@ -75,7 +75,7 @@ flowchart TD
 The central controller that manages:
 
 - **System tray icon** with context menu
-- **Daemon lifecycle** (start/stop the Jarvis voice assistant)
+- **Daemon lifecycle** (start/stop the Luffy voice assistant)
 - **Window management** (log viewer, memory viewer, face window)
 - **Update checking** on startup and on-demand
 
@@ -110,7 +110,7 @@ Animated loading screen shown during startup with:
 
 ## Daemon Integration
 
-The desktop app runs the Jarvis daemon in a **QThread** (bundled mode) or **subprocess** (development mode).
+The desktop app runs the Luffy daemon in a **QThread** (bundled mode) or **subprocess** (development mode).
 
 ```
 ┌─────────────────────────────────────────┐
@@ -252,7 +252,7 @@ A Flask-based web interface for browsing conversation history:
 |---------|-------|---------|-------|
 | Tray icon | Native menu bar | System tray | System tray |
 | Ollama start | `open -a Ollama` | `ollama serve` (hidden) | `ollama serve` |
-| Crash logs | `~/Library/Logs/Jarvis` | `%LOCALAPPDATA%\Jarvis` | `~/.jarvis` |
+| Crash logs | `~/Library/Logs/Luffy` | `%LOCALAPPDATA%\Luffy` | `~/.luffy` |
 | Memory viewer | System browser* | Embedded WebEngine | Embedded WebEngine |
 
 *macOS bundled apps use system browser due to QtWebEngine sandbox issues.
@@ -263,5 +263,5 @@ A Flask-based web interface for browsing conversation history:
 |------|-------|---------|-------|
 | Config | `~/.config/jarvis/` | `%APPDATA%\jarvis\` | `~/.config/jarvis/` |
 | Database | `~/.local/share/jarvis/` | `%LOCALAPPDATA%\jarvis\` | `~/.local/share/jarvis/` |
-| Crash logs | `~/Library/Logs/Jarvis/` | `%LOCALAPPDATA%\Jarvis\` | `~/.jarvis/` |
-| Instance lock | `~/Library/Application Support/Jarvis/` | `%LOCALAPPDATA%\Jarvis\` | `~/.jarvis/` |
+| Crash logs | `~/Library/Logs/Luffy/` | `%LOCALAPPDATA%\Luffy\` | `~/.luffy/` |
+| Instance lock | `~/Library/Application Support/Luffy/` | `%LOCALAPPDATA%\Luffy\` | `~/.luffy/` |

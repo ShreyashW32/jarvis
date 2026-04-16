@@ -1,4 +1,4 @@
-"""Base tool interface for Jarvis tools.
+"""Base tool interface for Luffy tools.
 
 This module defines the common interface that all tools must implement,
 ensuring consistency with MCP tool format and enabling dictionary-based execution.
@@ -32,7 +32,7 @@ class ToolContext:
 
 
 class Tool(ABC):
-    """Base class for all Jarvis tools.
+    """Base class for all Luffy tools.
 
     This interface matches the MCP tool format with name, description, and inputSchema
         properties, while providing a simple execution interface focused on tool logic.

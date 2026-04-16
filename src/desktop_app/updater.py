@@ -1,5 +1,5 @@
 """
-Auto-update functionality for Jarvis Desktop App.
+Auto-update functionality for Luffy Desktop App.
 
 Checks GitHub Releases for new versions and handles the update process.
 """
@@ -148,12 +148,12 @@ def get_platform_asset_name() -> str:
     if sys.platform == "darwin":
         arch = platform.machine()
         if arch == "arm64":
-            return "Jarvis-macOS-arm64.zip"
-        return "Jarvis-macOS-x64.zip"
+            return "Luffy-macOS-arm64.zip"
+        return "Luffy-macOS-x64.zip"
     elif sys.platform == "win32":
-        return "Jarvis-Windows-x64.zip"
+        return "Luffy-Windows-x64.zip"
     else:
-        return "Jarvis-Linux-x64.tar.gz"
+        return "Luffy-Linux-x64.tar.gz"
 
 
 def parse_version(tag: str) -> tuple[int, ...]:
@@ -320,7 +320,7 @@ def get_app_path() -> Path:
     """Get the path to the current application."""
     if getattr(sys, "frozen", False):
         if sys.platform == "darwin":
-            # Jarvis.app/Contents/MacOS/Jarvis -> Jarvis.app
+            # Luffy.app/Contents/MacOS/Luffy -> Luffy.app
             return Path(sys.executable).parent.parent.parent
         elif sys.platform == "win32":
             return Path(sys.executable)
@@ -354,10 +354,10 @@ def install_update_macos(download_path: Path) -> bool:
         with zipfile.ZipFile(download_path, "r") as zf:
             zf.extractall(temp_dir)
 
-        new_app_path = temp_dir / "Jarvis.app"
+        new_app_path = temp_dir / "Luffy.app"
 
         if not new_app_path.exists():
-            raise FileNotFoundError("Jarvis.app not found in download")
+            raise FileNotFoundError("Luffy.app not found in download")
 
         # Use AppleScript to move to trash and replace
         # Escape paths to prevent injection if paths contain quotes
@@ -373,7 +373,7 @@ def install_update_macos(download_path: Path) -> bool:
         subprocess.run(["osascript", "-e", script], check=True)
 
         # Launch new app
-        subprocess.Popen(["open", str(app_path.parent / "Jarvis.app")])
+        subprocess.Popen(["open", str(app_path.parent / "Luffy.app")])
 
         return True
 
@@ -388,7 +388,7 @@ def install_update_windows(download_path: Path) -> bool:
     """Install update on Windows.
 
     Strategy:
-    1. Extract zip to temp location (contains Inno Setup installer as Jarvis.exe)
+    1. Extract zip to temp location (contains Inno Setup installer as Luffy.exe)
     2. Create batch script to:
        - Wait for current process to actually exit (by PID)
        - Run the installer silently (upgrades in place to Program Files)
@@ -406,10 +406,10 @@ def install_update_windows(download_path: Path) -> bool:
         with zipfile.ZipFile(download_path, "r") as zf:
             zf.extractall(temp_dir)
 
-        new_exe_path = temp_dir / "Jarvis.exe"
+        new_exe_path = temp_dir / "Luffy.exe"
 
         if not new_exe_path.exists():
-            raise FileNotFoundError("Jarvis.exe not found in download")
+            raise FileNotFoundError("Luffy.exe not found in download")
 
         escaped_new_exe = _escape_batch_path(new_exe_path)
 
@@ -419,7 +419,7 @@ def install_update_windows(download_path: Path) -> bool:
         # to shut down (e.g., saving diary entries).
         # tasklist returns errorlevel 0 if process found, 1 if not found.
         batch_content = f'''@echo off
-echo Updating Jarvis...
+echo Updating Luffy...
 echo Waiting for process {current_pid} to exit...
 :wait_loop
 tasklist /fi "pid eq {current_pid}" 2>nul | find "{current_pid}" >nul
@@ -469,23 +469,23 @@ def install_update_linux(download_path: Path) -> bool:
         with tarfile.open(download_path, "r:gz") as tf:
             tf.extractall(temp_dir)
 
-        new_app_dir = temp_dir / "Jarvis"
+        new_app_dir = temp_dir / "Luffy"
 
         if not new_app_dir.exists():
-            raise FileNotFoundError("Jarvis directory not found in download")
+            raise FileNotFoundError("Luffy directory not found in download")
 
         # Escape paths using single quotes to prevent shell injection
         escaped_app_dir = _escape_shell_path(app_dir)
         escaped_new_app = _escape_shell_path(new_app_dir)
         escaped_temp = _escape_shell_path(temp_dir)
-        escaped_jarvis = _escape_shell_path(app_dir / "Jarvis")
+        escaped_jarvis = _escape_shell_path(app_dir / "Luffy")
 
         script_path = temp_dir / "update.sh"
         # Wait for the current process to exit by checking if PID still exists.
         # This is more reliable than a fixed timeout since the app may take time
         # to shut down (e.g., saving diary entries).
         script_content = f'''#!/bin/bash
-echo "Updating Jarvis..."
+echo "Updating Luffy..."
 echo "Waiting for process {current_pid} to exit..."
 while kill -0 {current_pid} 2>/dev/null; do
     sleep 1

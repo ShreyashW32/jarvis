@@ -1,10 +1,10 @@
 # Setup Wizard Specification
 
-First-run wizard that ensures Ollama, required models, and Whisper are ready before Jarvis starts.
+First-run wizard that ensures Ollama, required models, and Whisper are ready before Luffy starts.
 
 ## Overview
 
-The setup wizard is shown only when **user action is required** — it is not shown merely because the Ollama server isn't running (Jarvis can auto-start it). The two triggers are:
+The setup wizard is shown only when **user action is required** — it is not shown merely because the Ollama server isn't running (Luffy can auto-start it). The two triggers are:
 
 1. Ollama CLI is not installed.
 2. Ollama server is running but required models are missing.

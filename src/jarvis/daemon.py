@@ -1,5 +1,5 @@
 """
-Jarvis Voice Assistant Daemon
+Luffy Voice Assistant Daemon
 
 Main orchestrator that coordinates listening, reply generation, and output.
 """

@@ -162,7 +162,7 @@ class TestIntentJudgeThinking:
         from jarvis.listening.intent_judge import create_intent_judge
 
         cfg = MagicMock()
-        cfg.wake_word = "jarvis"
+        cfg.wake_word = "luffy"
         cfg.wake_aliases = []
         cfg.intent_judge_model = "gemma4:e2b"
         cfg.ollama_base_url = "http://localhost:11434"
@@ -178,7 +178,7 @@ class TestIntentJudgeThinking:
         from jarvis.listening.intent_judge import create_intent_judge
 
         cfg = MagicMock()
-        cfg.wake_word = "jarvis"
+        cfg.wake_word = "luffy"
         cfg.wake_aliases = []
         cfg.intent_judge_model = "gemma4:e2b"
         cfg.ollama_base_url = "http://localhost:11434"

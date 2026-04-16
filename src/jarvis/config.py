@@ -356,8 +356,8 @@ def get_default_config() -> Dict[str, Any]:
         "voice_max_collect_seconds": 180.0,
 
         # Wake Word Detection
-        "wake_word": "jarvis",
-        "wake_aliases": ["joris", "charis", "jar is", "jaivis", "jervis", "jarvus", "jarviz", "javis", "jairus", "jarryst"],
+        "wake_word": "luffy",
+        "wake_aliases": ["loofy", "lufi", "lufee", "louffy", "luffy"],
         "wake_fuzzy_ratio": 0.78,
 
         # Whisper Speech Recognition
@@ -433,7 +433,7 @@ def get_default_config() -> Dict[str, Any]:
         "dictation_thinking_enabled": False,  # Enable thinking for dictation filler removal (adds latency)
         "dictation_custom_dictionary": [],
 
-        # MCP Integration (external servers Jarvis can use). No defaults.
+        # MCP Integration (external servers Luffy can use). No defaults.
         "mcps": {},
     }
 

@@ -1,6 +1,6 @@
 """Builtin tools module.
 
-This module contains all the built-in tools available to the Jarvis system.
+This module contains all the built-in tools available to the Luffy system.
 Each tool is implemented using the common Tool interface for consistency.
 """
 

@@ -1,6 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 """
-PyInstaller spec file for Jarvis Desktop App
+PyInstaller spec file for Luffy Desktop App
 Builds a standalone executable for Windows, macOS, and Linux
 """
 
@@ -75,7 +75,7 @@ except Exception as e:
 
 # Hidden imports that PyInstaller might miss
 hiddenimports = [
-    # Jarvis core modules
+    # Luffy core modules
     'jarvis',
     'jarvis._version',
     'jarvis.daemon',
@@ -376,7 +376,7 @@ if sys.platform == 'darwin':
         a.scripts,
         [],
         exclude_binaries=True,
-        name='Jarvis',
+        name='Luffy',
         debug=False,
         bootloader_ignore_signals=False,
         strip=False,
@@ -398,25 +398,25 @@ if sys.platform == 'darwin':
         strip=False,
         upx=True,
         upx_exclude=[],
-        name='Jarvis',
+        name='Luffy',
     )
 
     app = BUNDLE(
         coll,
-        name='Jarvis.app',
+        name='Luffy.app',
         icon=str(src_path / 'desktop_app' / 'desktop_assets' / 'icon_idle.png'),
         bundle_identifier='com.jarvis.assistant',
         info_plist={
             'NSHighResolutionCapable': 'True',
             'LSUIElement': '1',  # Hide from dock
-            'NSMicrophoneUsageDescription': 'Jarvis needs microphone access to listen for voice commands.',
-            'NSScreenCaptureUsageDescription': 'Jarvis needs screen capture access to read text from your screen via OCR.',
+            'NSMicrophoneUsageDescription': 'Luffy needs microphone access to listen for voice commands.',
+            'NSScreenCaptureUsageDescription': 'Luffy needs screen capture access to read text from your screen via OCR.',
         },
     )
 
     # Post-build: Ensure OpenSSL libraries are correct and remove conflicting ones
     import shutil
-    frameworks_dir = Path('dist/Jarvis.app/Contents/Frameworks')
+    frameworks_dir = Path('dist/Luffy.app/Contents/Frameworks')
 
     # Remove OpenCV's bundled OpenSSL libraries (they conflict with Python's SSL)
     # Try both possible directory names
@@ -430,7 +430,7 @@ if sys.platform == 'darwin':
                     print(f"Removed OpenCV bundled OpenSSL: {cv2_lib}")
 
     # Also check Resources directory
-    resources_dir = Path('dist/Jarvis.app/Contents/Resources')
+    resources_dir = Path('dist/Luffy.app/Contents/Resources')
     cv2_resources_dylibs = resources_dir / 'cv2' / '.dylibs'
     if cv2_resources_dylibs.exists():
         for lib_name in ['libssl.3.dylib', 'libcrypto.3.dylib']:
@@ -499,7 +499,7 @@ elif sys.platform == 'win32':
         a.scripts,
         [],
         exclude_binaries=True,
-        name='Jarvis',
+        name='Luffy',
         debug=False,
         bootloader_ignore_signals=False,
         strip=False,
@@ -521,7 +521,7 @@ elif sys.platform == 'win32':
         strip=False,
         upx=True,
         upx_exclude=[],
-        name='Jarvis',
+        name='Luffy',
     )
 
 else:
@@ -531,7 +531,7 @@ else:
         a.scripts,
         [],
         exclude_binaries=True,
-        name='Jarvis',
+        name='Luffy',
         debug=False,
         bootloader_ignore_signals=False,
         strip=False,
@@ -552,6 +552,6 @@ else:
         strip=False,
         upx=False,
         upx_exclude=[],
-        name='Jarvis',
+        name='Luffy',
     )
 

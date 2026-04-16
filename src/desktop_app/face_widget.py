@@ -1,5 +1,5 @@
 """
-Low-poly grid face widget for Jarvis with intelligent state management and organic idle behavior.
+Low-poly grid face widget for Luffy with intelligent state management and organic idle behavior.
 
 Features:
 - Low-poly wireframe aesthetic with glowing effects
@@ -51,7 +51,7 @@ class Expression(Enum):
 
 
 class JarvisState(Enum):
-    """Overall Jarvis state for face animation."""
+    """Overall Luffy state for face animation."""
     ASLEEP = "asleep"          # Daemon not started yet
     IDLE = "idle"              # Awake and ready, waiting for wake word
     LISTENING = "listening"    # Actively listening (collecting or hot window)
@@ -60,18 +60,18 @@ class JarvisState(Enum):
     DICTATING = "dictating"    # Hold-to-dictate recording active
 
 
-# Global Jarvis state - allows daemon to signal overall state to face widget
+# Global Luffy state - allows daemon to signal overall state to face widget
 # Uses a file-based approach to work across processes (dev mode runs daemon as subprocess)
 import tempfile
 import os
 
 def _get_jarvis_state_file() -> str:
-    """Get the path to the Jarvis state file."""
+    """Get the path to the Luffy state file."""
     return os.path.join(tempfile.gettempdir(), "jarvis_state")
 
 
 class JarvisStateManager(QObject):
-    """Global singleton for Jarvis state management.
+    """Global singleton for Luffy state management.
 
     Uses a file-based approach to communicate across processes:
     - In dev mode, daemon runs as subprocess (different process)
@@ -119,7 +119,7 @@ class JarvisStateManager(QObject):
             pass
 
     def set_state(self, state: JarvisState) -> None:
-        """Set the Jarvis state (thread-safe, cross-process)."""
+        """Set the Luffy state (thread-safe, cross-process)."""
         with self._state_lock:
             self._state = state
 
@@ -140,7 +140,7 @@ _jarvis_state_lock = threading.Lock()
 
 
 def get_jarvis_state() -> JarvisStateManager:
-    """Get the global Jarvis state singleton."""
+    """Get the global Luffy state singleton."""
     global _jarvis_state_instance
     with _jarvis_state_lock:
         if _jarvis_state_instance is None:
@@ -157,17 +157,18 @@ class LowPolyFaceWidget(QWidget):
     """
     
     # Colors
-    PRIMARY_COLOR = QColor("#fbbf24")  # Amber/gold - matches Jarvis theme
-    SECONDARY_COLOR = QColor("#f59e0b")  # Darker amber
-    GLOW_COLOR = QColor("#fcd34d")  # Light amber for glow
-    BG_COLOR = QColor("#0a0a0a")  # Near black background
-    GRID_COLOR = QColor("#1f1f1f")  # Dark gray for background grid
+    PRIMARY_COLOR = QColor("#3b82f6")  # Blue - Luffy theme
+    SECONDARY_COLOR = QColor("#2563eb")  # Darker blue
+    GLOW_COLOR = QColor("#60a5fa")  # Light blue for glow
+    BG_COLOR = QColor(0, 0, 0, 0)  # Fully transparent background
+    GRID_COLOR = QColor(30, 58, 138, 40)  # Dark blue grid (translucent)
     
     def __init__(self, parent=None):
         super().__init__(parent)
         self.setMinimumSize(300, 400)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
 
-        # Current Jarvis state
+        # Current Luffy state
         self._jarvis_state = JarvisState.ASLEEP  # Start asleep until daemon ready
         self._mouth_openness = 0.0  # 0.0 = closed, 1.0 = fully open
         self._target_mouth_openness = 0.0
@@ -225,7 +226,7 @@ class LowPolyFaceWidget(QWidget):
         self._listening_rings: List[float] = []  # Active ring expansions (0.0 to 1.0)
         self._dictation_pulse_phase = 0.0  # Steady pulse phase for DICTATING state
 
-        # Connect to global Jarvis state
+        # Connect to global Luffy state
         self._state_manager = get_jarvis_state()
         self._state_manager.state_changed.connect(self._on_state_changed)
 
@@ -250,7 +251,7 @@ class LowPolyFaceWidget(QWidget):
         self._schedule_next_blink()
 
     def _on_state_changed(self, state_value: str):
-        """Handle Jarvis state change from global state."""
+        """Handle Luffy state change from global state."""
         try:
             self._jarvis_state = JarvisState(state_value)
         except ValueError:
@@ -420,7 +421,7 @@ class LowPolyFaceWidget(QWidget):
     
     def _animate(self):
         """Animation tick - update all animated properties."""
-        # Poll Jarvis state directly (more reliable than cross-thread signals)
+        # Poll Luffy state directly (more reliable than cross-thread signals)
         try:
             self._jarvis_state = self._state_manager.state
         except Exception:
@@ -1025,22 +1026,24 @@ class LowPolyFaceWidget(QWidget):
 
 
 class FaceWindow(QWidget):
-    """A standalone window containing the Jarvis face."""
+    """A standalone window containing the Luffy face."""
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("🤖 Jarvis")
+        self.setWindowTitle("🤖 Luffy")
         self.setMinimumSize(320, 420)
         self.resize(350, 450)
 
-        # Set window flags for floating window
+        # Set window flags for frameless floating window with transparent background
         self.setWindowFlags(
             Qt.WindowType.Window |
-            Qt.WindowType.WindowStaysOnTopHint
+            Qt.WindowType.WindowStaysOnTopHint |
+            Qt.WindowType.FramelessWindowHint
         )
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground, True)
 
-        # Dark background
-        self.setStyleSheet("background-color: #0a0a0a;")
+        # Transparent background
+        self.setStyleSheet("background: transparent;")
 
         # Layout
         layout = QVBoxLayout(self)

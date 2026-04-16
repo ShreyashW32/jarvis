@@ -1,5 +1,5 @@
 """
-🎨 Jarvis UI Themes
+🎨 Luffy UI Themes
 
 Shared stylesheets for Qt interfaces, matching the Memory Viewer's
 deep space theme with amber accents.
@@ -524,7 +524,7 @@ def _ensure_icons() -> dict[str, str]:
 
 
 def apply_theme(widget) -> None:
-    """Apply the Jarvis theme to a Qt widget, including SVG-based indicator icons."""
+    """Apply the Luffy theme to a Qt widget, including SVG-based indicator icons."""
     icons = _ensure_icons()
     icon_css = _ICON_STYLESHEET_TEMPLATE.format(**icons)
     widget.setStyleSheet(JARVIS_THEME_STYLESHEET + icon_css)
