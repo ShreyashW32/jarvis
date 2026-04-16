@@ -67,7 +67,7 @@ import os
 
 def _get_jarvis_state_file() -> str:
     """Get the path to the Luffy state file."""
-    return os.path.join(tempfile.gettempdir(), "jarvis_state")
+    return os.path.join(tempfile.gettempdir(), "luffy_state")
 
 
 class JarvisStateManager(QObject):

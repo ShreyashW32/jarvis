@@ -162,7 +162,7 @@ def get_crash_paths() -> tuple[Path, Path, Path]:
     else:
         log_dir = Path.home() / ".luffy"
 
-    crash_log = log_dir / "jarvis_desktop_crash.log"
+    crash_log = log_dir / "luffy_desktop_crash.log"
     crash_marker = log_dir / ".crash_marker"
     previous_crash = log_dir / "previous_crash.log"
 
@@ -515,7 +515,7 @@ def get_lock_file_path() -> Path:
         lock_dir = Path.home() / ".luffy"
 
     lock_dir.mkdir(parents=True, exist_ok=True)
-    return lock_dir / "jarvis_desktop.lock"
+    return lock_dir / "luffy_desktop.lock"
 
 
 def get_existing_instance_pid() -> Optional[int]:
@@ -541,7 +541,7 @@ def kill_existing_instance(pid: int) -> bool:
         process = psutil.Process(pid)
         # Verify it's actually a Luffy process (safety check)
         proc_name = process.name().lower()
-        if "jarvis" not in proc_name and "python" not in proc_name:
+        if "jarvis" not in proc_name and "luffy" not in proc_name and "python" not in proc_name:
             debug_log(f"PID {pid} doesn't look like Luffy (name: {proc_name}), not killing", "desktop")
             return False
 
@@ -1221,7 +1221,7 @@ class JarvisSystemTray:
                     if cmdline and 'jarvis.main' in ' '.join(cmdline):
                         # This is a Luffy daemon process
                         if proc.pid != current_pid:
-                            debug_log(f"killing orphaned jarvis process: {proc.pid}", "desktop")
+                            debug_log(f"killing orphaned luffy process: {proc.pid}", "desktop")
                             proc.terminate()
                             try:
                                 proc.wait(timeout=2)

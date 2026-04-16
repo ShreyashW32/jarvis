@@ -472,7 +472,7 @@ class TestTranscriptBuffer:
         now = _now()
         buf.add("luffy hello", now - 1, now)
 
-        result = buf.mark_segment_processed("jarvis goodbye")
+        result = buf.mark_segment_processed("luffy goodbye")
         assert result is False
 
     def test_mark_segment_processed_empty_buffer(self):
