@@ -515,11 +515,5 @@ Verify: `sudo lsof -i -n -P | grep jarvis` (should only show 127.0.0.1 to Ollama
 - **Auto-redaction** - Emails, tokens, passwords automatically removed
 - **Local storage** - Everything in `~/.local/share/jarvis`
 
-## License
 
-- **Personal use**: Free forever
-- **Commercial use**: [Contact us](mailto:baris@writeme.com)
 
-## Support
-
-[Report issues](https://github.com/isair/jarvis/issues) · [Discussions](https://github.com/isair/jarvis/discussions) · [Sponsor](https://github.com/sponsors/isair)
